@@ -54,20 +54,25 @@ return {
     -- marker used for empty indentation
     empty_indent_marker = '│',
 
+    -- marker used for final indentation
+    outer_indent_marker = '├',
+
+    filler_marker = '―',
+
     -- marker used for node indentation
     node_indent_marker = '└',
 
     -- marker used to identify the root of the tree (left to its name)
-    root_marker = ' ',
+    root_marker = '📒',
 
     -- marker used to identify a local root (right to its name)
     local_marker = 'local',
 
     -- marker used to show that a node has an associated data file
-    data_marker = '',
+    data_marker = '🗎',
 
     -- marker used to show that a node has an URL
-    url_marker = ' ',
+    url_marker = '🌐 ',
 
     -- marker used to show that a node is currently selected
     select_marker = '',
@@ -107,19 +112,19 @@ return {
 
     -- preset of icons
     icon_preset = {
-      { ' ', 'Sub-project' },
-      { ' ', 'Journal, newspaper, weekly and daily news' },
-      { ' ', 'For when you have an idea' },
-      { ' ', 'Note taking?' },
+      { '📒 ', 'Sub-project' },
+      { '📰', 'Journal, newspaper, weekly and daily news' },
+      { '💡 ', 'For when you have an idea' },
+      { '📝', 'Note taking?' },
       { '陼', 'Task management' },
-      { ' ', 'Uncheck, empty square or backlog' },
-      { ' ', 'Full square or on-going' },
-      { ' ', 'Check or done' },
-      { ' ', 'Trash bin, deleted, cancelled, etc.' },
+      { '▯ ', 'Uncheck, empty square or backlog' },
+      { '▮ ', 'Full square or on-going' },
+      { '✓ ', 'Check or done' },
+      { '🗑', 'Trash bin, deleted, cancelled, etc.' },
       { ' ', 'GitHub' },
       { ' ', 'Monitoring' },
-      { ' ', 'Internet, Earth, everyone!' },
-      { ' ', 'Frozen, on-hold' },
+      { '🌐', 'Internet, Earth, everyone!' },
+      { '❄ ', 'Frozen, on-hold' },
     }
   },
 
