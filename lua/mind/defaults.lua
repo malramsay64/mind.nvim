@@ -72,7 +72,7 @@ return {
     data_marker = '🗎',
 
     -- marker used to show that a node has an URL
-    url_marker = '🌐 ',
+    url_marker = '🌐',
 
     -- marker used to show that a node is currently selected
     select_marker = '',
@@ -112,9 +112,9 @@ return {
 
     -- preset of icons
     icon_preset = {
-      { '📒 ', 'Sub-project' },
+      { '📒', 'Sub-project' },
       { '📰', 'Journal, newspaper, weekly and daily news' },
-      { '💡 ', 'For when you have an idea' },
+      { '💡', 'For when you have an idea' },
       { '📝', 'Note taking?' },
       { '陼', 'Task management' },
       { '▯ ', 'Uncheck, empty square or backlog' },
