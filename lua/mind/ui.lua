@@ -1,7 +1,7 @@
 -- Everything relating to the UI.
 local M = {}
 
-local mind_node = require'mind.node'
+local mind_node = require 'mind.node'
 
 -- A per-tree render cache.
 --
@@ -36,6 +36,13 @@ local function node_to_line(node, opts)
     name = node.icon
     partial_hls[#partial_hls + 1] = {
       group = node_group,
+      width = #name,
+    }
+  else
+    -- Where there is no icon, we still want everything to line up properly
+    name = opts.ui.filler_marker .. ' '
+    partial_hls[#partial_hls + 1] = {
+      group = 'MindOpenMarker',
       width = #name,
     }
   end
@@ -114,11 +121,12 @@ local function render_node(node, indent, is_last, lines, hls, opts)
       line = indent
       indent = indent
     else
-      line = indent .. opts.ui.node_indent_marker .. ' '
+      line = indent .. opts.ui.node_indent_marker .. opts.ui.filler_marker
       indent = indent .. '  '
     end
   else
-    line = indent .. opts.ui.empty_indent_marker .. ' '
+    -- This is the
+    line = indent .. opts.ui.outer_indent_marker .. opts.ui.filler_marker
     indent = indent .. opts.ui.empty_indent_marker .. ' '
   end
 
@@ -189,8 +197,16 @@ local function render_node(node, indent, is_last, lines, hls, opts)
       end
     end
   else
-    local hl_col_end = hl_col_start
-    lines[#lines + 1] = line .. name
+    local mark = opts.ui.filler_marker
+    local hl_col_end = hl_col_start + #mark
+
+    hls[#hls + 1] = {
+      group = 'MindClosedMarker',
+      line = hl_line,
+      col_start = hl_col_start,
+      col_end = hl_col_end
+    }
+    lines[#lines + 1] = line .. mark .. name
 
     for _, hl in ipairs(partial_hls) do
       hl_col_start = hl_col_end
