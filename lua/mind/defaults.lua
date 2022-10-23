@@ -58,6 +58,8 @@ return {
     outer_indent_marker = '├',
 
     filler_marker = '―',
+    closed_marker = ' ',
+    open_marker = ' ',
 
     -- marker used for node indentation
     node_indent_marker = '└',
